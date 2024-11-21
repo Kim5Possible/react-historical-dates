@@ -1,0 +1,75 @@
+.circle {
+    position: relative;
+
+
+
+    &__name {
+        position: absolute;
+        top: -100px;
+        right: 35%;
+        color: #42567A;
+        width: 100px;
+        font-size: 20px;
+        font-weight: 700;
+        text-align: left;
+        opacity: 0;
+        transition: right 0.5s ease;
+
+        &--active {
+            opacity: 1;
+            right: 28%;
+        }
+
+
+    }
+
+    &__container {
+        position: absolute;
+        top: -100px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 530px;
+        height: 530px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    &__border {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 1px solid rgba($color: #42567A, $alpha: 0.2);
+        border-radius: 50%;
+
+    }
+
+    &__dot {
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        background-color: #42567A;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 20px;
+        cursor: pointer;
+
+
+
+
+        &--active {
+            width: 56px;
+            height: 56px;
+            border: 1px solid rgba($color: #303E58, $alpha: 0.5);
+            background-color: #fff;
+            transition: width 0.3s, height 0.3s, background-color 0.2s;
+
+        }
+
+
+
+    }
+}
