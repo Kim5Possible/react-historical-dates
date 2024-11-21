@@ -1,0 +1,31 @@
+.main {
+    border: 1px solid rgba($color: #42567A, $alpha: 0.1);
+    padding-top: 170px;
+    padding-bottom: 104px;
+    height: 100%;
+    width: 100%;
+
+
+    &__title {
+        font-size: 52px;
+        font-weight: 700;
+        color: #42567A;
+        padding-left: 78px;
+        margin-bottom: 96px;
+        position: relative;
+        border-left: 5px solid;
+        border-image-source: linear-gradient(180deg, #3877EE -5%, #EF5DA8 85%);
+        border-image-slice: 1;
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 1px;
+        height: 100%;
+        background-color: rgba($color: #42567A, $alpha: 0.1);
+    }
+}
