@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./TimePeriod.scss";
 import gsap from "gsap";
 import ArrowLeft from "../../../public/assets/arrow-left.svg";
@@ -8,12 +8,12 @@ type Props = {
   setThemeIndex: (index: number) => void;
   themeIndex: number;
 
-  themes: { name: string; dates: { year: number }[] }[];
+  themes: { name: string; dates: { year: string }[] }[];
 };
 
 const TimePeriod = ({ setThemeIndex, themeIndex, themes }: Props) => {
-  const [yearStart, setYearStart] = useState<number>();
-  const [yearEnd, setYearEnd] = useState<number>();
+  const [yearStart, setYearStart] = useState<string>();
+  const [yearEnd, setYearEnd] = useState<string>();
 
   const handleClickNext = () => setThemeIndex((themeIndex + 1) % themes.length);
 
@@ -27,7 +27,7 @@ const TimePeriod = ({ setThemeIndex, themeIndex, themes }: Props) => {
     );
   }, [themeIndex, themes]);
 
-  function countYears(year?: number): JSX.Element | null {
+  function countYears(year?: string): JSX.Element | null {
     if (year === undefined) return null;
 
     const className =

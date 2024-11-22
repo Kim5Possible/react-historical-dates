@@ -13,7 +13,6 @@ import { Navigation, Pagination } from "swiper/modules";
 type Props = {
   themeIndex: number;
 };
-
 const Dates = ({ themeIndex }: Props) => {
   const theme = items.theme[themeIndex];
   const [isFirstSlide, setIsFirstSlide] = React.useState(true);

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Main.scss";
+import dates from "../dates.json";
 import TimePeriod from "./components/TimePeriod";
 import Dates from "./components/Dates";
 import Circle from "./components/Circle";
@@ -8,18 +9,17 @@ type Props = {};
 
 const Main = (props: Props) => {
   const [themeIndex, setThemeIndex] = useState(0);
-  const [themes, setThemes] = useState([]);
+  const [themes, setThemes] = useState<
+    { name: string; dates: { year: string; description: string }[] }[]
+  >([]);
 
   const handleDotClick = (index: number) => {
     setThemeIndex(index);
   };
 
   useEffect(() => {
-    fetch("../dates.json")
-      .then((response) => response.json())
-      .then((data) => setThemes(data.theme));
+    setThemes(dates.theme);
   }, []);
-
   return (
     <section className="main">
       <div className="main__title">

@@ -1,8 +1,11 @@
 {
   "name": "react-historical-dates",
+  "homepage": "https://kim5possible.github.io/react-historical-dates/",
   "version": "1.0.0",
   "scripts": {
     "dev": "webpack serve",
+    "gh-pages": "gh-pages -d dist",
+    "deploy": "npm run build && npm run gh-pages",
     "build": "webpack --mode production"
   },
   "keywords": [],
@@ -27,6 +30,7 @@
     "babel-loader": "^9.2.1",
     "css-loader": "^7.1.2",
     "file-loader": "^6.2.0",
+    "gh-pages": "^6.2.0",
     "html-loader": "^5.1.0",
     "html-webpack-plugin": "^5.6.3",
     "sass": "^1.81.0",

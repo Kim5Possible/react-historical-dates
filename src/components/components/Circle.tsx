@@ -44,7 +44,7 @@ const Circle = ({ themes, onClick, themeIndex }: Props) => {
       circleName.classList.remove("circle__name--active");
       setTimeout(() => {
         circleName.classList.add("circle__name--active");
-        dotsRefs.current[index].classList.add("circle__dot--active");
+        dotsRefs.current[index]?.classList.add("circle__dot--active");
       }, 200);
     }
     if (dotsRefs.current.length > 0) {
