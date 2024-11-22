@@ -8,7 +8,7 @@ import "swiper/css";
 import "swiper/scss";
 import "swiper/scss/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import { Navigation, Pagination } from "swiper/modules";
 
 type Props = {
   themeIndex: number;
@@ -32,19 +32,45 @@ const Dates = ({ themeIndex }: Props) => {
       </button>
 
       <Swiper
-        slidesPerView={3}
         spaceBetween={80}
         navigation={{
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
         }}
         onSlideChange={handleSlideChange}
-        modules={[Navigation]}
-        className="mySwiper"
+        modules={[Navigation, Pagination]}
+        breakpoints={{
+          320: {
+            slidesPerView: 1,
+            pagination: {
+              el: ".swiper-pagination",
+              enabled: true,
+              dynamicBullets: true,
+              clickable: true,
+            },
+          },
+          768: {
+            slidesPerView: 2,
+            pagination: {
+              el: ".swiper-pagination",
+              enabled: true,
+              dynamicBullets: true,
+              clickable: true,
+            },
+          },
+          1024: {
+            slidesPerView: 3,
+            pagination: {
+              el: ".swiper-pagination",
+              enabled: false,
+            },
+          },
+        }}
+        className="swiper"
       >
         {theme.dates.map((item, index) => {
           return (
-            <SwiperSlide key={index}>
+            <SwiperSlide className="swiper-slide" key={index}>
               <div className="dates__item">
                 <span>{item.year}</span>
                 <p>{item.description}</p>
@@ -52,6 +78,8 @@ const Dates = ({ themeIndex }: Props) => {
             </SwiperSlide>
           );
         })}
+
+        <div className="swiper-pagination"></div>
       </Swiper>
       <button className={`swiper-button-next ${isLastSlide ? "inactive" : ""}`}>
         <img src={ArrowRight} alt="Next" />

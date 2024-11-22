@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import "./Circle.scss";
 
@@ -11,6 +11,7 @@ type Props = {
 const Circle = ({ themes, onClick, themeIndex }: Props) => {
   const circleRef = useRef<HTMLDivElement>(null);
   const dotsRefs = useRef<HTMLDivElement[]>([]);
+  const [hoveredDot, setHoveredDot] = useState<number | null>(null);
 
   useEffect(() => {
     if (dotsRefs.current.length > 0) {
@@ -35,9 +36,9 @@ const Circle = ({ themes, onClick, themeIndex }: Props) => {
   }, [themeIndex]);
 
   const activateDot = (index: number) => {
-    dotsRefs.current.forEach((dot) => {
-      dot.classList.remove("circle__dot--active");
-    });
+    dotsRefs.current.forEach((dot) =>
+      dot.classList.remove("circle__dot--active")
+    );
     const circleName = document.querySelector(".circle__name");
     if (circleName) {
       circleName.classList.remove("circle__name--active");
@@ -46,7 +47,6 @@ const Circle = ({ themes, onClick, themeIndex }: Props) => {
         dotsRefs.current[index].classList.add("circle__dot--active");
       }, 200);
     }
-
     if (dotsRefs.current.length > 0) {
       onClick(index);
       const angleOffset = (360 * index) / themes.length;
@@ -65,7 +65,11 @@ const Circle = ({ themes, onClick, themeIndex }: Props) => {
           x: 0,
           y: 0,
           rotation: rotationAngle,
-          duration: 0.5,
+          duration: 0.9,
+        });
+
+        gsap.to(dot, {
+          rotation: angleOffset + 55,
         });
       });
     }
@@ -81,7 +85,23 @@ const Circle = ({ themes, onClick, themeIndex }: Props) => {
             ref={(el) => (dotsRefs.current[index] = el!)}
             className="circle__dot"
             onClick={() => activateDot(index)}
-          ></div>
+            onMouseOver={() => {
+              if (index !== themeIndex) {
+                setHoveredDot(index);
+                dotsRefs.current[index].classList.add("circle__dot--active");
+              }
+            }}
+            onMouseOut={() => {
+              if (index !== themeIndex) {
+                setHoveredDot(null);
+                dotsRefs.current[index].classList.remove("circle__dot--active");
+              }
+            }}
+          >
+            {(index === themeIndex || hoveredDot === index) && (
+              <span>{index + 1}</span>
+            )}
+          </div>
         ))}
       </div>
       <span className="circle__name">{themes[themeIndex]?.name}</span>
