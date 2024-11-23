@@ -4,7 +4,7 @@
     padding: 0 80px;
     margin-bottom: 56px;
 
-    @include s.md {
+    @include s.lg {
         padding: 0 20px;
     }
 
@@ -33,7 +33,7 @@
             gap: 40px;
         }
 
-        @include s.md {
+        @include s.lg {
             border-bottom: 1px solid #C7CDD9;
         }
 
@@ -54,7 +54,7 @@
             padding-left: 5px;
         }
 
-        @include s.md {
+        @include s.lg {
             position: absolute;
             bottom: 2%;
         }
@@ -71,7 +71,7 @@
                 opacity: 1;
             }
 
-            @include s.md {
+            @include s.lg {
                 width: 40px;
             }
         }
@@ -83,7 +83,7 @@
                 opacity: 1;
             }
 
-            @include s.md {
+            @include s.lg {
                 width: 40px;
             }
         }

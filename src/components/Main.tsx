@@ -25,14 +25,15 @@ const Main = (props: Props) => {
       <div className="main__title">
         Исторические <br /> даты
       </div>
-      <Circle
-        themes={themes}
-        onClick={handleDotClick}
-        themeIndex={themeIndex}
-      />
+
       <TimePeriod
         themes={themes}
         setThemeIndex={setThemeIndex}
+        themeIndex={themeIndex}
+      />
+      <Circle
+        themes={themes}
+        onClick={handleDotClick}
         themeIndex={themeIndex}
       />
 

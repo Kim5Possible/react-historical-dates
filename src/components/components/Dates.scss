@@ -51,16 +51,18 @@
     &-button-prev {
         width: 50px;
 
-        @include s.md {
+        @include s.lg {
             display: none;
         }
     }
 
 
     &-pagination {
-        width: 100% !important;
+        width: 200px !important;
         bottom: 32px !important;
         cursor: pointer !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
 
         &-bullet {
             width: 13px !important;
