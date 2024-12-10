@@ -4,8 +4,6 @@
 .circle {
     position: relative;
 
-
-
     &__name {
         position: absolute;
         top: -600px;
@@ -32,8 +30,6 @@
             opacity: 1;
             right: 28%;
         }
-
-
     }
 
     &__container {
@@ -54,15 +50,12 @@
         }
     }
 
-
     &__border {
         position: absolute;
-
         width: 100%;
         height: 100%;
         border: 1px solid rgba($color: #42567A, $alpha: 0.2);
         border-radius: 50%;
-
     }
 
     &__dot {
@@ -73,8 +66,6 @@
         border-radius: 50%;
         line-height: 20px;
         cursor: pointer;
-
-
 
         &--active {
             width: 56px;

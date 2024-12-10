@@ -1,13 +1,12 @@
-@use '../screens.scss'as s;
+@use "../screens.scss"as s;
 
 .main {
-    border: 1px solid rgba($color: #42567A, $alpha: 0.1);
+    border: 1px solid rgba($color: #42567a, $alpha: 0.1);
     padding-top: 170px;
     padding-bottom: 90px;
     height: 100%;
     width: 100%;
     position: relative;
-
 
     &__title {
         font-size: 52px;
@@ -15,11 +14,9 @@
         padding-left: 78px;
         margin-bottom: 96px;
         position: relative;
-
         border-left: 5px solid;
-        border-image-source: linear-gradient(180deg, #3877EE -5%, #EF5DA8 85%);
+        border-image-source: linear-gradient(180deg, #3877ee -5%, #ef5da8 85%);
         border-image-slice: 1;
-
 
         @include s.md {
             border: none;
@@ -31,7 +28,6 @@
         }
     }
 
-
     &::after {
         content: "";
         position: absolute;
@@ -40,7 +36,7 @@
         transform: translateX(-50%);
         width: 1px;
         height: 100%;
-        background-color: rgba($color: #42567A, $alpha: 0.1);
+        background-color: rgba($color: #42567a, $alpha: 0.1);
 
         @include s.md {
             display: none;

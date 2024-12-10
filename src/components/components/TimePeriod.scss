@@ -1,4 +1,4 @@
-@use '../../screens.scss'as s;
+@use "../../screens.scss"as s;
 
 .time-period {
     padding: 0 80px;
@@ -16,17 +16,13 @@
         gap: 50px;
         padding-bottom: 137px;
 
-
         &--left {
             color: #574bff;
         }
 
         &--right {
             color: #ff50c5;
-
         }
-
-
 
         @include s.lg {
             font-size: 18vw;
@@ -34,7 +30,7 @@
         }
 
         @include s.lg {
-            border-bottom: 1px solid #C7CDD9;
+            border-bottom: 1px solid #c7cdd9;
         }
 
         @include s.xs {
